@@ -30,13 +30,13 @@ Participants should have some familiarity with the research process.
 
 | Time | Topic |
 | --- | --- | 
-| 09:00AM - 09:30AM | Introductions | 
-| 09:30AM - 11:25AM | The Big Picture | 
+| 09:00AM - 09:30AM | Introductions & [Pre-class survey](https://goo.gl/forms/QujNhChjYrnkU5Ln2) | 
+| 09:30AM - 11:25AM | [The Big Picture](./1-TheBigPicture.ipynb) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 | 12:30PM - 01:30PM | Lunch | 
-| 01:30PM - 02:30PM | File Management | 
+| 01:30PM - 02:30PM | [File Management](./2-FileManagement.ipynb) | 
 | 02:30PM - 02:45PM | Break | 
-| 02:45PM - 04:45PM | Data Management | 
+| 02:45PM - 04:45PM | [Data Management](./3-DataManagement.ipynb) | 
 | 04:45PM - 05:00PM | Wrap Up | 
 
 ### Tuesday, July 18
@@ -44,12 +44,10 @@ Participants should have some familiarity with the research process.
 | Time | Topic |
 | --- | --- | 
 | 09:00AM - 09:20AM | Reflection | 
-| 09:20AM - 11:25AM | Research Dissemination | 
+| 09:20AM - 11:25AM | [Research Dissemination](./4-ResearchDissemination.ipynb) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 | 12:30PM - 01:30PM | Lunch | 
-| 01:30PM - 03:30PM | Build Your Toolkit | 
-| 03:30PM - 03:45PM | Break | 
-| 03:45PM - 04:45PM | Initiatives & Resources | 
+| 01:30PM - 04:45PM | [Build Your Toolkit](./5-BuildYourToolkit.ipynb) | 
 | 04:45PM - 05:00PM | Wrap Up | 
 
 ### Wednesday, July 19 
@@ -57,6 +55,8 @@ Participants should have some familiarity with the research process.
 | Time | Topic |
 | --- | --- | 
 | 09:00AM - 09:20AM | Reflection | 
-| 09:20AM - 11:15AM | Presentations | 
-| 11:15AM - 11:25AM | Wrap Up & Evaluations | 
+| 09:20AM - 11:15AM | [Presentations](./Presentations.ipynb) | 
+| 11:15AM - 11:25AM | Wrap Up & [Post-class survey](https://goo.gl/forms/N8cq46X74K6Cw9jl2) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
+
+## [Resources](./Resources.ipynb)
