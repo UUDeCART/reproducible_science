@@ -18,6 +18,8 @@ Participants should have some familiarity with the research process.
 
 ### Instructor: Shirley Zhao, Data Science Librarian
 
+| Contact | | 
+| --- | --- | 
 | **Mail** | Spencer S. Eccles Health Sciences Library, The University of Utah, 10 N 1900 E, SLC, UT 84112 | 
 | **Email** | [shirley.zhao@utah.edu](mailto:shirley.zhao@utah.edu) |
 | **Website** | [http://shirl0207.wordpress.com](http://shirl0207.wordpress.com) |
@@ -34,6 +36,9 @@ Participants should have some familiarity with the research process.
 | Mon | 02:30PM - 02:45PM | Break | 
 | Mon | 02:45PM - 04:45PM | Data Management | 
 | Mon | 04:45PM - 05:00PM | Wrap Up | 
+
+| Day | Time | Topic |
+| --- | --- | --- | 
 | Tue | 09:00AM - 09:20AM | Reflection | 
 | Tue | 09:20AM - 11:25AM | Research Dissemination | 
 | Tue | 11:30AM - 12:30PM | Featured Speaker | 
@@ -42,6 +47,9 @@ Participants should have some familiarity with the research process.
 | Tue | 03:30PM - 03:45PM | Break | 
 | Tue | 03:45PM - 04:45PM | Initiatives & Resources | 
 | Tue | 04:45PM - 05:00PM | Wrap Up | 
+
+| Day | Time | Topic |
+| --- | --- | --- | 
 | Wed | 09:00AM - 09:20AM | Reflection | 
 | Wed | 09:20AM - 11:15AM | Presentations | 
 | Wed | 11:15AM - 11:25AM | Wrap Up | 
