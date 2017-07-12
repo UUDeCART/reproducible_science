@@ -31,33 +31,33 @@ Participants should have some familiarity with the research process.
 | Time | Topic |
 | --- | --- | 
 | 09:00AM - 09:30AM | Introductions & [Pre-class survey](https://goo.gl/forms/QujNhChjYrnkU5Ln2) | 
-| 09:30AM - 11:25AM | [The Big Picture](./1-TheBigPicture.ipynb) | 
+| 09:30AM - 11:25AM | Module 1: [The Big Picture](./1-TheBigPicture.ipynb) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 | 12:30PM - 01:30PM | Lunch | 
-| 01:30PM - 02:30PM | [File Management](./2-FileManagement.ipynb) | 
+| 01:30PM - 02:30PM | Module 2: [File Management](./2-FileManagement.ipynb) | 
 | 02:30PM - 02:45PM | Break | 
-| 02:45PM - 04:45PM | [Data Management](./3-DataManagement.ipynb) | 
+| 02:45PM - 04:45PM | Module 3: [Data Management](./3-DataManagement.ipynb) | 
 | 04:45PM - 05:00PM | Wrap Up | 
 
 ### Tuesday, July 18
 
 | Time | Topic |
 | --- | --- | 
-| 09:00AM - 09:20AM | Reflection | 
-| 09:20AM - 11:25AM | [Build Your Toolkit, Part 1](./4_1-BuildYourToolkit.ipynb) | 
+| 09:00AM - 09:15AM | Reflection | 
+| 09:15AM - 11:25AM | Module 4: [Build Your Toolkit, Part 1](./4_1-BuildYourToolkit.ipynb) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 | 12:30PM - 01:30PM | Lunch | 
-| 01:30PM - 03:30PM | [Build Your Toolkit, Part 2](./4_2-BuildYourToolkit.ipynb) | 
+| 01:30PM - 03:30PM | Module 4: [Build Your Toolkit, Part 2](./4_2-BuildYourToolkit.ipynb) | 
 | 03:30PM - 03:45PM | Break | 
-| 03:45PM - 04:45PM | [Research Dissemination](./5-ResearchDissemination.ipynb) | 
+| 03:45PM - 04:45PM | Module 5: [Research Dissemination](./5-ResearchDissemination.ipynb) | 
 | 04:45PM - 05:00PM | Wrap Up | 
 
 ### Wednesday, July 19 
 
 | Time | Topic |
 | --- | --- | 
-| 09:00AM - 09:20AM | Reflection | 
-| 09:20AM - 11:15AM | [Presentations](./Presentations.ipynb) | 
+| 09:00AM - 09:15AM | Reflection | 
+| 09:15AM - 11:15AM | [Presentations](./Presentations.ipynb) | 
 | 11:15AM - 11:25AM | Wrap Up & [Post-class survey](https://goo.gl/forms/N8cq46X74K6Cw9jl2) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 
