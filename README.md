@@ -44,10 +44,12 @@ Participants should have some familiarity with the research process.
 | Time | Topic |
 | --- | --- | 
 | 09:00AM - 09:20AM | Reflection | 
-| 09:20AM - 11:25AM | [Research Dissemination](./4-ResearchDissemination.ipynb) | 
+| 09:20AM - 11:25AM | [Build Your Toolkit, Part 1](./4_1-BuildYourToolkit.ipynb) | 
 | 11:30AM - 12:30PM | Featured Speaker | 
 | 12:30PM - 01:30PM | Lunch | 
-| 01:30PM - 04:45PM | [Build Your Toolkit](./5-BuildYourToolkit.ipynb) | 
+| 01:30PM - 03:30PM | [Build Your Toolkit, Part 2](./4_2-BuildYourToolkit.ipynb) | 
+| 03:30PM - 03:45PM | Break | 
+| 03:45PM - 04:45PM | [Research Dissemination](./5-ResearchDissemination.ipynb) | 
 | 04:45PM - 05:00PM | Wrap Up | 
 
 ### Wednesday, July 19 
