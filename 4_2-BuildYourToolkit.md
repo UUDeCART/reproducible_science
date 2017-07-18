@@ -1,5 +1,31 @@
 # A Brief Introduction to Using Docker
 
+## How Did I Learn About Docker?
+
+At a Reproducible Science workshop! (SciPy 2014 by the creators of IPython/Jupyter)
+
+## How Did I Get Really Excited about Docker?
+
+* I was in Berlin at a workshop and a speaker mentioned the Stanford NLP Parser.
+
+* I think, "That could be useful," and do a Google search "stanford nlp parser docker"
+
+* I find a web page that tells me to type this:
+
+```bash
+docker run -p 9000:9000 --name coreNLP --rm -i -t motiz88/corenlp
+```
+
+* I find another web page that tells me to type this:
+
+```bash
+wget --post-data 'The quick brown fox jumped over the lazy dog.' 'localhost:9000/?properties={"annotators":"tokenize,ssplit,pos","outputFormat":"json"}' -O -
+```
+
+#### In less than five minutes I was exploring an important software tool
+
+## What is Docker?
+
 Docker is an open source platform for distributing software through **containers**. Containers are a light-weight mechanism for creating isolated computing environments within an operating system. You can read Docker's own description of what Docker is [here](https://www.docker.com/what-docker) or, alternatively, this [ZDNet Article, "What is Docker and why is it so darn popular?"](http://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/)
 
 Without getting bogged down in the technical details, Docker is popular for two primary reasons:
@@ -252,6 +278,32 @@ docker run -it -v $PWD:/data chapmanbe/edger --input /data/chest.jpg --output /d
 ```bash
 docker ps -a  
 ```
+* List the last ``n`` created containers:
+
+```bash
+powderkeg:reproducible_science brian$ docker ps -a -n 20
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS               NAMES
+013a3059cdba        chapmanbe/edger     "python /edge_dete..."   11 hours ago        Exited (0) 11 hours ago                       pedantic_gates
+55819aad8b03        chapmanbe/edger     "python /edge_dete..."   11 hours ago        Exited (0) 11 hours ago                       goofy_wozniak
+593f2d3056f9        ce275b773eec        "--input /data/che..."   11 hours ago        Created                                       kind_hopper
+7f52afd8e5c7        ce275b773eec        "bash"                   11 hours ago        Exited (0) 11 hours ago                       adoring_galileo
+68bcf2da1875        ce275b773eec        "python /edge_dete..."   11 hours ago        Exited (2) 11 hours ago                       youthful_mahavira
+e9d582b8891b        ce275b773eec        "python /edge_dete..."   11 hours ago        Exited (2) 11 hours ago                       hardcore_pasteur
+d0cdedded91e        ce275b773eec        "bash"                   11 hours ago        Exited (0) 11 hours ago                       pensive_jennings
+ecd8c2c98853        chapmanbe/edger     "python /edge_dete..."   11 hours ago        Exited (2) 11 hours ago                       romantic_snyder
+a089c62a2bdf        235019b3e981        "/bin/sh -c 'pip i..."   11 hours ago        Exited (1) 11 hours ago                       angry_stallman
+1dfa6568ff6f        hello-world         "whoami"                 15 hours ago        Created                                       serene_bohr
+f8e705e1cef0        hello-world         "ls"                     15 hours ago        Created                                       dreamy_stallman
+2dc6b8dbb7ff        hello-world         "sh"                     15 hours ago        Created                                       nostalgic_mcclintock
+ed685951f77f        hello-world         "pwd"                    15 hours ago        Created                                       stupefied_jones
+08ec9a70d8f6        hello-world         "echo 'hello ,world'"    15 hours ago        Created                                       laughing_northcutt
+f2430613157e        python:3.5-alpine   "python"                 15 hours ago        Exited (0) 15 hours ago                       festive_jennings
+01f14a19ea6a        python:3.5-alpine   "python"                 15 hours ago        Exited (0) 15 hours ago                       naughty_feynman
+c5261c6da521        python:3.5-alpine   "python -c 'print(..."   15 hours ago        Exited (0) 15 hours ago                       tender_thompson
+08572049dd0b        ubuntu:16.04        "echo 'hello, world'"    15 hours ago        Exited (0) 15 hours ago                       competent_heyrovsky
+e618b2e01cfe        ubuntu:14.04        "echo 'hello, world'"    15 hours ago        Exited (0) 15 hours ago                       wizardly_knuth
+ff109e0a2bd8        python:3.5          "python -c 'print(..."   15 hours ago        Exited (0) 15 hours ago                       elegant_liskov
+```
 
 * Remove containers
 
@@ -260,3 +312,35 @@ docker rm ContainersID_OR_CONTAINER_NAME
 ```
 
 * Use the ``--rm`` option when running
+
+## Improving Our Dockerfile
+
+From a reproducible science perspective, how could we improve our Dockerfile?
+
+* Use ``pip freeze`` to determine the versions of the Python packages we are using.
+
+* Examine the Dockerfiles used to define our [jupyterhub environment])https://github.com/UUDeCART/decart_infrastructure/blob/master/2017/jupyter/Dockerfile)
+## Now I've got a Dockerfile, So What?
+
+#### A small, plain-text file that describes an entire compute environment
+
+* Version control the file
+  * Connect specific commit to specific paper (version, revision, etc.)
+* Share
+  * e-mail
+  * GitHub
+  * BitBucket
+
+## Docker Hub
+
+### Connect GitHub with Docker Hub
+[Example from Resonant Course](https://github.com/UUDeCART/resonant_course/blob/master/instructions/Part3.md)
+
+### Build, Commit, Push
+
+* [Docker documentation for ``commit``](https://docs.docker.com/engine/reference/commandline/commit/)
+* [Docker documentation for push](https://docs.docker.com/docker-cloud/builds/push-images/)
+
+## docker-compose
+
+docker-compose is a tool that facilitates creating Docker containers, particularly if we have complex options or a network of dependent containers. There is an example docker-compose.yml file for bringing up a [Girder](https://girder.readthedocs.io/en/latest/)/[MongoDB](https://www.mongodb.com/) pair.
