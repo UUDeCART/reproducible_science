@@ -343,4 +343,11 @@ From a reproducible science perspective, how could we improve our Dockerfile?
 
 ## docker-compose
 
-docker-compose is a tool that facilitates creating Docker containers, particularly if we have complex options or a network of dependent containers. There is an example docker-compose.yml file for bringing up a [Girder](https://girder.readthedocs.io/en/latest/)/[MongoDB](https://www.mongodb.com/) pair.
+docker-compose is a tool that facilitates creating Docker containers, particularly if we have complex options or a network of dependent containers. There is an example docker-compose.yml file for bringing up a [Girder](https://girder.readthedocs.io/en/latest/)/[MongoDB](https://www.mongodb.com/) pair. Even if you have a simple application, docker-compose makes working with Docker much easier.
+
+* ``docker-compose.yml``: A [YAML](http://www.yaml.org/about.html) file describing how Docker should be run
+* We can point to local Dockerfiles if needed
+* Common commands:
+    * docker-compose up
+    * docker-compose build
+    * docker-compose stop
