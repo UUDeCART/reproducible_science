@@ -111,7 +111,7 @@ Alternative commands include
 
 Since we told Docker we want to run a container, we have to tell it which **image** to build the container with.
 
-Here are are telling Docker to create the container from the **``hello-world``** image.
+Here we are are telling Docker to create the container from the **``hello-world``** image.
 
 * Since we didn't specify a **tag**, Docker assumes we want to use the *latest* Docker image with this name. (This does not always behave as you would expect.)
 
@@ -122,7 +122,7 @@ The ``hello-world`` image has a default command to execute, which prints out the
 The ``docker run SOMEIMAGE`` syntax can be extended by the following syntax:
 
 ```bash
-docker run SOMEIMAGE SOME_COMMAND
+docker run [OPTIONAL OPTIONS] SOMEIMAGE SOME_COMMAND
 ```
 
 #### Hello world with ubuntu
@@ -153,6 +153,20 @@ We can create an interactive computing environment:
 ```bash
 docker run -it python:3.5-alpine python
 ```
+
+This should bring up a Python shell that we can interact with:
+
+```bash
+powderkeg:reproducible_science brian$ docker run -it python:3.5-alpine python
+Python 3.5.3 (default, Jun 28 2017, 22:06:39) 
+[GCC 5.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print(2*3*4*5)
+120
+>>> 
+```
+When you exit the Python shell with CTRL-D, the container exits.
+
 ## Viewing our Images
 
 To view the images that now exist on your computer, execute the following command:
@@ -311,18 +325,40 @@ ff109e0a2bd8        python:3.5          "python -c 'print(..."   15 hours ago   
 docker rm ContainersID_OR_CONTAINER_NAME
 ```
 
-* Use the ``--rm`` option when running
+* Use the ``--rm`` option when running to avoid unwanted persistent containers.
+
+[Here](https://linuxconfig.org/remove-all-containners-based-on-docker-image-name) are some instructions for deleting containers based on the image name.
+
+```bash
+docker ps -a | awk '{ print $1,$2 }' | grep hello-world | awk '{print $1}' | xargs -I {} docker rm {}
+```
 
 ## Improving Our Dockerfile
 
-From a reproducible science perspective, how could we improve our Dockerfile?
+From a reproducible science perspective, how could we improve our Dockerfile? While we have provided a specific Python Docker image, we have not specified which version of scikit-image we used.
 
 * Use ``pip freeze`` to determine the versions of the Python packages we are using.
 
-* Examine the Dockerfiles used to define our [jupyterhub environment])https://github.com/UUDeCART/decart_infrastructure/blob/master/2017/jupyter/Dockerfile)
+```Docker
+# Indicate what base image we want to build on top of
+FROM python:3.5
+
+# Install the extra python libraries we'll be using
+RUN pip install scikit-image==0.12.3 
+
+# Copy our algorithm script into the image
+COPY edge_detection.py /edge_detection.py
+
+# Make our script the executable that will be run via "docker run"
+ENTRYPOINT ["python", "/edge_detection.py"]
+```
+
+* Examine the Dockerfiles used to define our [jupyterhub environment](https://github.com/UUDeCART/decart_infrastructure/blob/master/2017/jupyter/Dockerfile)
+* How should this be improved?
+
 ## Now I've got a Dockerfile, So What?
 
-#### A small, plain-text file that describes an entire compute environment
+#### We have a small, plain-text file that describes an entire compute environment
 
 * Version control the file
   * Connect specific commit to specific paper (version, revision, etc.)
@@ -331,7 +367,7 @@ From a reproducible science perspective, how could we improve our Dockerfile?
   * GitHub
   * BitBucket
 
-## Docker Hub
+## Using Docker Hub
 
 ### Connect GitHub with Docker Hub
 [Example from Resonant Course](https://github.com/UUDeCART/resonant_course/blob/master/instructions/Part3.md)
@@ -346,8 +382,56 @@ From a reproducible science perspective, how could we improve our Dockerfile?
 docker-compose is a tool that facilitates creating Docker containers, particularly if we have complex options or a network of dependent containers. There is an example docker-compose.yml file for bringing up a [Girder](https://girder.readthedocs.io/en/latest/)/[MongoDB](https://www.mongodb.com/) pair. Even if you have a simple application, docker-compose makes working with Docker much easier.
 
 * ``docker-compose.yml``: A [YAML](http://www.yaml.org/about.html) file describing how Docker should be run
+
+```Docker
+version: '2'
+services:
+  girder-dev:
+    image: girder/girder:latest
+    ports:
+      - "8040:8080"
+    entrypoint:
+      - python
+      - -m
+      - girder
+      - -d
+      - mongodb://pheno-mongo-dev:27017/girder
+  pheno-mongo-dev:
+    image: mongo:latest
+    volumes:
+      - /Users/brian/GirderDataTest/MongoDB:/export
+```
+
 * We can point to local Dockerfiles if needed
 * Common commands:
     * docker-compose up
     * docker-compose build
     * docker-compose stop
+
+```bash
+docker-compose up -d
+```
+
+This brings up our MongoDB container and Girder container. It creates names for the container based on the services defined in the docker-compose.yml file and the current directory name.
+
+* The ``-d`` option detaches the processes from the terminal (try it without ``-d``)
+
+```bash
+powderkeg:reproducible_science brian$ docker-compose ps
+                Name                               Command               State           Ports          
+-------------------------------------------------------------------------------------------------------
+reproduciblescience_girder-dev_1        python -m girder -d mongod ...   Up      0.0.0.0:8040->8080/tcp 
+reproduciblescience_pheno-mongo-dev_1   /entrypoint.sh mongod            Up      27017/tcp              
+```
+
+This tells us that the girder container has a process on port 8040 of our computer. If we open a web browser to localhost:8040 we will see the Girder process:
+
+![Girder screen shot](./girder.png)
+
+
+```bash
+powderkeg:reproducible_science brian$ docker-compose stop
+Stopping reproduciblescience_girder-dev_1 ... done
+Stopping reproduciblescience_pheno-mongo-dev_1 ... done
+powderkeg:reproducible_science brian$
+```
