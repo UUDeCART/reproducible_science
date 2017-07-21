@@ -1,0 +1,16 @@
+version: '2'
+services:
+  girder-dev:
+    image: girder/girder:latest
+    ports:
+      - "8040:8080"
+    entrypoint:
+      - python
+      - -m
+      - girder
+      - -d
+      - mongodb://pheno-mongo-dev:27017/girder
+  pheno-mongo-dev:
+    image: mongo:latest
+    volumes:
+      - /Users/brian/GirderDataTest/MongoDB:/export
